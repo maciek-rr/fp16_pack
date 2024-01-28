@@ -25,6 +25,8 @@ jobs:
         bundler-cache: true
         cargo-cache: true
         rubygems: '3.5.3'
+    - name: Compile the native extension
+      run: bundle exec rake compile
     - name: Install the gem
       run: bundle exec rake install
     - name: Run specs

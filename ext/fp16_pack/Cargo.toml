@@ -1,0 +1,15 @@
+[package]
+name = "fp16_pack"
+version = "0.1.0"
+edition = "2021"
+authors = ["Maciek Dubiński <maciek@dubinski.net>"]
+license = "MIT"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+bytes = { version = "1.5.0" }
+magnus = { version = "0.6.2", features = ["bytes"] }
+half = { version = "2.3.1" }

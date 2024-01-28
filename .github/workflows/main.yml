@@ -3,12 +3,12 @@ name: Ruby
 on:
   push:
     branches:
-      - master
+      - main
 
   pull_request:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     name: Ruby ${{ matrix.ruby }}
     strategy:
@@ -25,5 +25,9 @@ jobs:
         bundler-cache: true
         cargo-cache: true
         rubygems: '3.5.3'
-    - name: Run the default task
-      run: bundle exec rake
+    - name: Install the gem
+      run: bundle exec rake install
+    - name: Run specs
+      run: bundle exec rake test
+    - name: Run linter
+      run: bundle exec rubocop
